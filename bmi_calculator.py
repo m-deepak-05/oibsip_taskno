@@ -9,10 +9,10 @@ def calculate_bmi():
         if weight <= 0 or height <= 0:
             raise ValueError("Weight and height must be positive numbers.")
         
-        bmi = weight / (height ** 2)
+        bmi = weight / ((height/100) ** 2)
         category = bmi_category(bmi)
         
-        result_label.config(text=f"Your BMI is: {bmi:.2f}\nCategory: {category}")
+        result_label.config(text=f"Your BMI is: {bmi}\nCategory: {category}")
     except ValueError as e:
         messagebox.showerror("Input Error", str(e))
 
@@ -38,7 +38,7 @@ entry_weight = tk.Entry(root)
 entry_weight.pack()
 
 # Create and place the height label and entry
-label_height = tk.Label(root, text="Enter your height in meters:")
+label_height = tk.Label(root, text="Enter your height in centimeters:")
 label_height.pack()
 
 entry_height = tk.Entry(root)
